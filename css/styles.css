@@ -1,0 +1,36 @@
+body {
+  --primary: #ede144;
+  --secondary: #4cf785;
+  --dark: #292f3d;
+
+  background-color: var(--dark);
+  color: var(--primary);
+  font-family: 'Inconsolata', monospace;
+}
+
+.container {
+  max-width: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: none;
+  border-bottom: 1px solid;
+  border-color: transparent;
+  transition: border-color .2s;
+}
+
+a:hover {
+  color: var(--secondary);
+  border-color: var(--secondary);
+  text-decoration: none;
+}
