@@ -1,0 +1,24 @@
+#
+# CI Configuration
+#
+
+# Build Stages
+stages:
+  - deploy
+
+cache:
+  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+
+# Deploy to Firebase
+deploy:
+  stage: deploy
+  image: node:8.11.3-alpine
+  environment: prod
+  only:
+    - master
+  script:
+    - npm install -g firebase-tools
+    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token "$FIREBASE_TOKEN"
